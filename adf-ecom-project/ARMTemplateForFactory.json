@@ -238,7 +238,8 @@
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "order"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -288,7 +289,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -307,7 +308,7 @@
 						"timeZone": "India Standard Time",
 						"schedule": {
 							"minutes": [
-								30
+								41
 							],
 							"hours": [
 								14
