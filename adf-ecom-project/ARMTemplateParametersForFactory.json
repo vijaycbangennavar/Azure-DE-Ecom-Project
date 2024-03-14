@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-ecom-project"
+		},
+		"LS_SQL_PARQUET_INPUT_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_PARQUET_OUTPUT_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_PARQUET_INPUT_properties_typeProperties_url": {
+			"value": "https://adlsrawecomproject.dfs.core.windows.net/"
+		},
+		"LS_SQL_PARQUET_OUTPUT_properties_typeProperties_url": {
+			"value": "https://adlsprocessedecomproject.dfs.core.windows.net/"
+		}
+	}
+}
