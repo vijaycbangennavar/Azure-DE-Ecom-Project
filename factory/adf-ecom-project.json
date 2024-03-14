@@ -1,0 +1,9 @@
+{
+	"name": "adf-ecom-project",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "997fb8c0-11cf-4261-9ecd-dd3b70222e7b",
+		"tenantId": "9e68ce3a-8230-4f2b-b224-bfdb1aaf32e9"
+	}
+}
