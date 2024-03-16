@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-ecom-project"
 		},
+		"LS_REST_PARQUET_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_REST_PARQUET_OUTPUT'"
+		},
 		"LS_SQL_PARQUET_INPUT_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SQL_PARQUET_INPUT'"
@@ -14,6 +18,14 @@
 		"LS_SQL_PARQUET_OUTPUT_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SQL_PARQUET_OUTPUT'"
+		},
+		"LS_REST_PARQUET_INPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/smdCCy/data"
+		},
+		"LS_REST_PARQUET_OUTPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		},
 		"LS_SQL_PARQUET_INPUT_properties_typeProperties_url": {
 			"type": "string",
@@ -50,11 +62,20 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_REST_PARQUET_OUTPUT_accountKey": {
+						"value": "[parameters('LS_REST_PARQUET_OUTPUT_accountKey')]"
+					},
 					"LS_SQL_PARQUET_INPUT_accountKey": {
 						"value": "[parameters('LS_SQL_PARQUET_INPUT_accountKey')]"
 					},
 					"LS_SQL_PARQUET_OUTPUT_accountKey": {
 						"value": "[parameters('LS_SQL_PARQUET_OUTPUT_accountKey')]"
+					},
+					"LS_REST_PARQUET_INPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST_PARQUET_INPUT_properties_typeProperties_url')]"
+					},
+					"LS_REST_PARQUET_OUTPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST_PARQUET_OUTPUT_properties_typeProperties_url')]"
 					},
 					"LS_SQL_PARQUET_INPUT_properties_typeProperties_url": {
 						"value": "[parameters('LS_SQL_PARQUET_INPUT_properties_typeProperties_url')]"
