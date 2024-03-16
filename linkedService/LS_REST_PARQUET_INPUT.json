@@ -1,0 +1,12 @@
+{
+	"name": "LS_REST_PARQUET_INPUT",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://retoolapi.dev/smdCCy/data",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
