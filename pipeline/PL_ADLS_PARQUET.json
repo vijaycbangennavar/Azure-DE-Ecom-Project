@@ -1,5 +1,5 @@
 {
-	"name": "PL_CSV_PARQUET",
+	"name": "PL_ADLS_PARQUET",
 	"properties": {
 		"activities": [
 			{
