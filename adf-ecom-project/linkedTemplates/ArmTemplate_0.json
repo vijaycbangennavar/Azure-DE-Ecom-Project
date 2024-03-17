@@ -23,10 +23,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SQL_PARQUET_OUTPUT'"
 		},
-		"DS_ADLS_PARQUET_OUTPUT_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'DS_ADLS_PARQUET_OUTPUT'"
-		},
 		"LS_BLOB_PARQUET_INPUT_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_BLOB_PARQUET_INPUT'"
@@ -34,6 +30,10 @@
 		"LS_BLOB_PARQUET_OUTPUT_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_BLOB_PARQUET_OUTPUT'"
+		},
+		"LS_ADLS_PARQUET_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_PARQUET_OUTPUT'"
 		},
 		"LS_ADLS_PARQUET_INPUT_properties_typeProperties_url": {
 			"type": "string",
@@ -55,11 +55,11 @@
 			"type": "string",
 			"defaultValue": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		},
-		"DS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url": {
+		"LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		},
-		"LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url": {
+		"LS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		}
@@ -152,23 +152,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DS_ADLS_PARQUET_OUTPUT')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('DS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('DS_ADLS_PARQUET_OUTPUT_accountKey')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/LS_BLOB_PARQUET_INPUT')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -193,6 +176,23 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('LS_BLOB_PARQUET_OUTPUT_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ADLS_PARQUET_OUTPUT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ADLS_PARQUET_OUTPUT_accountKey')]"
 					}
 				}
 			},
@@ -371,22 +371,21 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DS_ADLS_PARQUET_OUTPUT",
+					"referenceName": "LS_ADLS_PARQUET_OUTPUT",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "payment"
+						"type": "AzureBlobFSLocation"
 					},
 					"compressionCodec": "snappy"
 				},
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/DS_ADLS_PARQUET_OUTPUT')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_ADLS_PARQUET_OUTPUT')]"
 			]
 		},
 		{

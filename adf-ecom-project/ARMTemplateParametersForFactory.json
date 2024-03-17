@@ -17,13 +17,13 @@
 		"LS_SQL_PARQUET_OUTPUT_accountKey": {
 			"value": ""
 		},
-		"DS_ADLS_PARQUET_OUTPUT_accountKey": {
-			"value": ""
-		},
 		"LS_BLOB_PARQUET_INPUT_connectionString": {
 			"value": ""
 		},
 		"LS_BLOB_PARQUET_OUTPUT_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_PARQUET_OUTPUT_accountKey": {
 			"value": ""
 		},
 		"LS_ADLS_PARQUET_INPUT_properties_typeProperties_url": {
@@ -41,10 +41,10 @@
 		"LS_SQL_PARQUET_OUTPUT_properties_typeProperties_url": {
 			"value": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		},
-		"DS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url": {
+		"LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url": {
 			"value": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		},
-		"LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url": {
+		"LS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url": {
 			"value": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		}
 	}
