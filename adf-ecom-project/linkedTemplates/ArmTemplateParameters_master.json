@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "adf-ecom-project"
 		},
+		"LS_ADLS_PARQUET_INPUT_accountKey": {
+			"value": ""
+		},
 		"LS_REST_PARQUET_OUTPUT_accountKey": {
 			"value": ""
 		},
@@ -13,6 +16,18 @@
 		},
 		"LS_SQL_PARQUET_OUTPUT_accountKey": {
 			"value": ""
+		},
+		"DS_ADLS_PARQUET_OUTPUT_accountKey": {
+			"value": ""
+		},
+		"LS_BLOB_PARQUET_INPUT_connectionString": {
+			"value": ""
+		},
+		"LS_BLOB_PARQUET_OUTPUT_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_PARQUET_INPUT_properties_typeProperties_url": {
+			"value": "https://adlsrawecomproject.dfs.core.windows.net/"
 		},
 		"LS_REST_PARQUET_INPUT_properties_typeProperties_url": {
 			"value": "https://retoolapi.dev/smdCCy/data"
@@ -24,6 +39,12 @@
 			"value": "https://adlsrawecomproject.dfs.core.windows.net/"
 		},
 		"LS_SQL_PARQUET_OUTPUT_properties_typeProperties_url": {
+			"value": "https://adlsprocessedecomproject.dfs.core.windows.net/"
+		},
+		"DS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url": {
+			"value": "https://adlsprocessedecomproject.dfs.core.windows.net/"
+		},
+		"LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url": {
 			"value": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		},
 		"containerUri": {

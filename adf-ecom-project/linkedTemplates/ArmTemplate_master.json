@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-ecom-project"
 		},
+		"LS_ADLS_PARQUET_INPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_PARQUET_INPUT'"
+		},
 		"LS_REST_PARQUET_OUTPUT_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_REST_PARQUET_OUTPUT'"
@@ -18,6 +22,22 @@
 		"LS_SQL_PARQUET_OUTPUT_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SQL_PARQUET_OUTPUT'"
+		},
+		"DS_ADLS_PARQUET_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DS_ADLS_PARQUET_OUTPUT'"
+		},
+		"LS_BLOB_PARQUET_INPUT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_BLOB_PARQUET_INPUT'"
+		},
+		"LS_BLOB_PARQUET_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_BLOB_PARQUET_OUTPUT'"
+		},
+		"LS_ADLS_PARQUET_INPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsrawecomproject.dfs.core.windows.net/"
 		},
 		"LS_REST_PARQUET_INPUT_properties_typeProperties_url": {
 			"type": "string",
@@ -32,6 +52,14 @@
 			"defaultValue": "https://adlsrawecomproject.dfs.core.windows.net/"
 		},
 		"LS_SQL_PARQUET_OUTPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsprocessedecomproject.dfs.core.windows.net/"
+		},
+		"DS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsprocessedecomproject.dfs.core.windows.net/"
+		},
+		"LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsprocessedecomproject.dfs.core.windows.net/"
 		},
@@ -62,6 +90,9 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_ADLS_PARQUET_INPUT_accountKey": {
+						"value": "[parameters('LS_ADLS_PARQUET_INPUT_accountKey')]"
+					},
 					"LS_REST_PARQUET_OUTPUT_accountKey": {
 						"value": "[parameters('LS_REST_PARQUET_OUTPUT_accountKey')]"
 					},
@@ -70,6 +101,18 @@
 					},
 					"LS_SQL_PARQUET_OUTPUT_accountKey": {
 						"value": "[parameters('LS_SQL_PARQUET_OUTPUT_accountKey')]"
+					},
+					"DS_ADLS_PARQUET_OUTPUT_accountKey": {
+						"value": "[parameters('DS_ADLS_PARQUET_OUTPUT_accountKey')]"
+					},
+					"LS_BLOB_PARQUET_INPUT_connectionString": {
+						"value": "[parameters('LS_BLOB_PARQUET_INPUT_connectionString')]"
+					},
+					"LS_BLOB_PARQUET_OUTPUT_accountKey": {
+						"value": "[parameters('LS_BLOB_PARQUET_OUTPUT_accountKey')]"
+					},
+					"LS_ADLS_PARQUET_INPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_PARQUET_INPUT_properties_typeProperties_url')]"
 					},
 					"LS_REST_PARQUET_INPUT_properties_typeProperties_url": {
 						"value": "[parameters('LS_REST_PARQUET_INPUT_properties_typeProperties_url')]"
@@ -82,10 +125,36 @@
 					},
 					"LS_SQL_PARQUET_OUTPUT_properties_typeProperties_url": {
 						"value": "[parameters('LS_SQL_PARQUET_OUTPUT_properties_typeProperties_url')]"
+					},
+					"DS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url": {
+						"value": "[parameters('DS_ADLS_PARQUET_OUTPUT_properties_typeProperties_url')]"
+					},
+					"LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_BLOB_PARQUET_OUTPUT_properties_typeProperties_url')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adf-ecom-project_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-ecom-project_ArmTemplate_0')]"
+			]
 		}
 	]
 }
