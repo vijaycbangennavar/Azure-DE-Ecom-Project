@@ -9,6 +9,12 @@
 					"referenceName": "PL_SQL_PARQUET",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "PL_REST_PARQUET",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
